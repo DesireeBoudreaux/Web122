@@ -1,0 +1,210 @@
+/* Custom CSS variables */
+:root {
+    /* Color variables */
+    --background-color: #f7d9e3; /* Pastel pink background */
+    --accent-color: #e07aa8; /* Accent for masthead and buttons */
+    --font-color: #333333; /* Text color */
+    
+    /*Font variables*/
+    --base-font-size: 16px;
+    --title-font: "Emilys Candy", cursive; /* Title font */
+    --body-font: "Trebuchet MS", Verdana, Arial, sans-serif; /* font for all other text */
+}
+
+h1 {
+    font-family: var(--title-font);
+}
+
+/* Center the entire list section */
+.sweet-treats-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers the whole block */
+}
+
+/* Center each top-level list */
+.sweet-treats-centered > ul {
+    padding-left: 0; /* remove browser padding */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Give list items space for the cute little heart */
+.sweet-treats-centered li {
+    position: relative;
+    padding-left: 1.5rem; /* space for heart */
+    text-align: left; /* keeps text readable */
+}
+
+/* Cute heart bullet for the lists */
+.sweet-treats-centered li::marker {
+    content: "\2661";
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+/* Margin spacing between lists */
+.sweet-treats-centered h3 {
+    margin-top: 2rem; /* Space above */
+    margin-bottom: 1rem; /* Space below */
+}
+
+
+/* Reset and base- global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    text-align: center;
+    font-size: var(--base-font-size); /* Base size in px for predictable scaling */
+
+    color: var(--font-color);
+    background-color: var(--background-color);
+    padding-bottom: 4rem;
+}
+
+img {
+    display: block;
+    margin: 1.5rem auto;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--font-color);
+}
+
+/* Hamburger menu*/
+.hamburger {
+    color: var(--font-color);
+    font-size: 2rem;
+    cursor: pointer;
+    display: block;
+    margin-top: 1rem;
+}
+
+.hamburger-menu {
+    display: none;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+}
+
+.mobile-nav ul {
+    list-style: none;
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: bold;
+    display: block;
+    padding: 0.5rem 0;
+}
+
+/* Hamburger menu and Mobile Navigation */
+.hamburger-menu:checked+.hamburger+.mobile-nav {
+    display: block;
+    background-color: var(--background-color);
+    padding: 1rem;
+}
+
+/* Masthead: Viewport units vh, vw */
+.masthead-header {
+    height: 40vh; /* Masthead height scales with viewport height */
+    padding: 4vw; /* Padding scales with viewport width */
+    background-color: var(--accent-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.masthead-header h1 {
+    /* Trying out clamp() */
+    font-size: clamp(2rem, 5vw, 4rem); /* ensures the title scales with viewport but not too small or too large */
+    margin-bottom: 0.5rem;
+}
+
+/* Tagline */
+.tagline {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Main */
+main {
+    padding: 1.5rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Cakes nested list using em */
+.list-em {
+    font-size: 1em; /* Using em so the nested lists scale relative to parent without shrinking */
+    margin-left: 1.5em;
+}
+
+.list-em ul {
+    margin-left: 1.2em;
+}
+
+/* Cookies nested list using rem */
+.list-rem {
+    font-size: 1rem; /* Using rem so all nested levels stay consistent */
+
+    margin-left: 1.5rem;
+}
+
+.list-rem ul {
+    margin-left: 1.2rem;
+}
+
+/* Media Queries */
+
+/* Tablet */
+@media (min-width: 600px) {
+    body {
+        font-size: 18px; /* Larger font for tablets readability */
+        background-color: #fcebf3;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    body {
+        font-size: 20px; /*Change the font size for desktops*/
+        background-color: #fdeff7; /* Lighter background color larger screens*/
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    nav a {
+        font-size: 1.2rem;
+    }
+
+    nav a:hover {
+        color: white;
+        background-color: var(--accent-color);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+    }
+}
