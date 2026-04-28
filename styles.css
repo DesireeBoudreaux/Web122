@@ -1,0 +1,492 @@
+/* ---------------------------------------------
+   Base Styles & Color Variables
+--------------------------------------------- */
+:root {
+  --color-bg: #f7f7fb;
+  --color-text: #222222;
+  /* CH 11: Accent color fallback for older browsers */
+  --color-accent: #8a9f8c;
+  /* CH: 11 OKLCH accent color for modern browsers */
+  --color-accent: oklch(70% 0.08 150);
+  --color-accent-soft: #c7c4dd;
+  --color-accent-dark: #5b6b5d;
+  --color-header-bg: #ffffff;
+  --max-width: 1100px;
+  --radius-soft: 0.75rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius-soft);
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.card img {
+  aspect-ratio: 4 / 3;
+}
+
+/* ---------------------------------------------
+   Global Heading Color
+--------------------------------------------- */
+/* CH 12 UPDATE: Google font applied to all headings (article headings also included) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--color-accent-dark);
+}
+
+/* ---------------------------------------------
+   Header Typography
+--------------------------------------------- */
+.site-header .site-title {
+  font-family: 'Cormorant Garamond', serif;
+  color: #6b7f5f;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  margin: 0;
+  text-align: center;
+}
+
+.site-header .brand {
+  flex: 1;
+  text-align: center;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.tagline {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* ---------------------------------------------
+   Global Photo Credit
+--------------------------------------------- */
+.photo-credit {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+}
+
+/* ---------------------------------------------
+   Sticky Header + Navigation
+--------------------------------------------- */
+/* CH 12 UPDATE: Masthead spacing: 40px below header before next content */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--color-header-bg);
+  border-bottom: 1px solid #e3e3ee;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px; /* CH 12 UPDATE: required 40px masthead spacing */
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.hamburger {
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Mobile Nav */
+.site-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-header-bg);
+  border-bottom: 1px solid #e3e3ee;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.site-nav li {
+  border-top: 1px solid #eee;
+}
+
+.site-nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+/* Sage Hover for Nav Links */
+.site-nav a:hover {
+  color: var(--color-accent);
+  transition: color 0.2s ease;
+}
+
+.nav-toggle:checked + .hamburger + .site-nav {
+  display: block;
+}
+
+.site-nav.open {
+  display: block;
+}
+
+/* ---------------------------------------------
+   Desktop Navigation
+--------------------------------------------- */
+@media (min-width: 768px) {
+
+  .hamburger {
+    display: none;
+  }
+
+  .site-nav {
+    position: static;
+    display: block;
+    border-bottom: none;
+  }
+
+  .site-nav ul {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .site-nav li {
+    border: none;
+  }
+
+  .site-nav a {
+    padding: 0.25rem 0;
+  }
+
+  /* Center header stack */
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Desktop hero layout */
+  .hero {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+
+  /* Home hero centered */
+  .home-hero .hero-text {
+    text-align: center;
+  }
+
+  /* Contact + About hero left aligned */
+  .contact-hero .hero-text,
+  .about-hero .hero-text {
+    text-align: left;
+  }
+
+  .hero-img {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-img img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+  }
+
+  .hero-img .photo-credit {
+    margin-top: 0.5rem;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* CH 13 & 14 UPDATES: Remove flex so floated image can wrap text */
+.about-hero {
+  display: block !important;
+}  
+
+/* ---------------------------------------------
+   About Page Image Block
+--------------------------------------------- */
+.about-image-block {
+  /* CH 13 & 14 UPDATE: Float the entire block */
+  float: right;
+  width: 180px; 
+  margin: 0 0 1rem 1rem;  
+}
+
+/* CH 13 & 14 UPDATE: Floated image to allow text to wrap around it */
+.about-image-block img {
+  width: 100%; 
+  height: auto;
+  border-radius: 1rem; 
+  shape-outside: inset(0 round 1rem);
+}
+
+/* ---------------------------------------------
+  Centered image for Our Spaces section
+  --------------------------------------------- */
+.spaces-image {
+  text-align: center;
+  margin: 1.5rem auto;
+}
+
+.spaces-image img {
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* ---------------------------------------------
+   Values List
+--------------------------------------------- */
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.values-list li {
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+/* ---------------------------------------------
+   Hero Layout (mobile-first)
+--------------------------------------------- */
+/* Center homepage hero text on mobile */
+.home-hero .hero-text {
+  text-align: center;
+}
+
+.home-hero .hero-text .btn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-text h2,
+.hero-text h3 {
+  margin-top: 0;
+}
+
+.hero-img {
+  border-radius: var(--radius-soft);
+}
+
+/* ---------------------------------------------
+   Section Titles
+--------------------------------------------- */
+.section-title {
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  margin-bottom: 1rem;
+  /* CH 15, 16, & 17 UPDATE: Apply fade rise to sec title */
+  animation: fadeRise 1.2s ease-out both;
+}
+
+/* ---------------------------------------------
+   Card Component
+--------------------------------------------- */
+.card {
+  background: #ffffff;
+  border-radius: var(--radius-soft);
+  padding: 1rem;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+  /* CH 15, 16, & 17 UPDATE: Transition (smooth shadow + movement on hover) */
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* CH 13 & 14 UPDATE: On hover shift shadow X position for soft movement */
+.card:hover {
+  /* CH 15, 16, & 17 UPDATE: Transition */
+  box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.08);
+  /* CH 15, 16, & 17 UPDATE: Transform (scale up slightly on hover) */
+  transform: translateX(2px) scale(1.02);
+}
+
+/* ---------------------------------------------
+   3-Column Responsive Grid
+--------------------------------------------- */
+/* CH 12 UPDATE: 3-column grid with 25px spacing between articles */
+.grid-3 { 
+  display: grid;
+  gap: 25px;  /* CH 12 UPDATE: required 25px spacing between the three articles */
+
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+/* Left alignment for grid + card content */
+.card,
+.card p,
+.card h3,
+.card h4,
+.gallery-grid p,
+.grid-3 p,
+.grid-3 h3,
+.grid-3 h4 {
+  text-align: left;
+}
+
+/* ---------------------------------------------
+   CONTAINER QUERY: adjusts card layout based on
+   the width of the .features section, not not 
+   viewport 
+--------------------------------------------- */
+
+/* Turn .features into a container */
+.features {
+  container-type: inline-size;
+}
+
+/* When .features container is at least 600px wide,
+   each card will use a side-by-side layout */
+@container (min-width: 750px) {
+  .features .card {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .features .card img {
+    max-width: 60%;
+    height: auto;
+  }
+
+  .features .card h3,
+  .features .card p {
+    text-align: left;
+  }
+}
+
+.features .card-text {
+  flex: 1;
+}
+
+/* ---------------------------------------------
+  END CONTAINER QUERY
+  ------------------------------------------- */
+
+/* ---------------------------------------------
+   Gallery Styling
+--------------------------------------------- */
+.gallery-grid img {
+  border-radius: var(--radius-soft);
+  /*CH 13 & 14 UPDATE: Blend mode applied to gallery images for a soft effect */
+  mix-blend-mode: multiply;
+  opacity: 0.95;
+}
+
+/* ---------------------------------------------
+   Buttons & CTA
+--------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  /* CH 13 & 14 UPDATE: Fallback solid color*/
+  background: var(--color-accent);
+  /* CH 13 & 14 UPDATE: Gradient button for moddern */
+  background-image: linear-gradient(135deg, #8a9f8c, #c7c4dd);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn:hover {
+  background: var(--color-accent-dark);
+}
+
+.cta {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* ---------------------------------------------
+   Footer
+--------------------------------------------- */
+.site-footer {
+  background: #f0f0f7;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+  color: #444;
+  margin-top: 2rem;
+}
+
+/* ----------------------------------------------- 
+CH 15, 16, & 17 UPDATE:  Soft Fade & rise animation
+------------------------------------------------ */
+@keyframes fadeRise {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

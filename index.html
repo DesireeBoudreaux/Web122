@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Desiree Boudreaux">
+    <title>Moonstone & Meadow Spa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="brand">
+            <h1 class="site-title">Moonstone & Meadow Spa</h1>
+            <p class="tagline">Nature, moonlight, and mindful rituals for a softer, slower you.</p>
+        </div>
+
+        <!-- Hamburger for mobile -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="hamburger">&#9776;</label>
+
+        <!-- NAV -->
+        <nav class="site-nav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero home-hero">
+            <div class="hero-text">
+                <h2>Where Nature Meets Moonlight</h2>
+                <p>Experience tranquility through botanical treatments, lunar-inspired rituals, and soothing
+                    aromatherapy.</p>
+                <a href="services.html" class="btn">Explore Our Services</a>
+            </div>
+
+            <div class="hero-img">
+                <img src="assets/pexels-elly-fairytale-3865674.jpg"
+                    alt="Flatlay of spa items on wood with eucalyptus branches">
+                <p class="photo-credit">Photo by Elly Fairytale on Pexels</p>
+            </div>
+        </section>
+
+        <!-- CONTAINER QUERY APPLIED TO THIS SECTION -->
+        <!-- FEATURED SECTIONS (3 ARTICLES FOR RESPONSIVE COLUMNS) -->
+        <section class="features">
+            <h2 class="section-title">Featured Services</h2>
+
+            <section class="grid-3">
+
+                <!-- Botanical Facials -->
+                <article class="card">
+                    <img src="assets/pexels-rdne-6724309.jpg"
+                        alt="Botanical facial ingredients arranged with eucalyptus">
+                    <div class="card-text">
+                        <p class="photo-credit">Photo by RDNE Stock project on Pexels</p>
+                        <h3>Botanical Facials</h3>
+                        <p>Hydrating, calming, and naturally radiant. Our facials blend meadow botanicals with moonstone
+                            energy.</p>
+                    </div>
+                </article>
+
+                <!-- Massage Therapy -->
+                <article class="card">
+                    <img src="assets/pexels-darina-belonogova-8789646.jpg"
+                        alt="Stacked massage stones with an orchid on top">
+                    <div class="card-text">
+                        <p class="photo-credit">Photo by Darina Belonogova on Pexels</p>
+                        <h3>Massage Therapy</h3>
+                        <p>From Swedish to deep tissue, each massage is designed to restore balance and melt away
+                            tension.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Holistic Rituals -->
+                <article class="card">
+                    <img src="assets/pexels-cup-of-couple-7303334.jpg"
+                        alt="Holistic ritual items with crystals, petals, and a brass bowl on soft fabric">
+                    <div class="card-text">
+                        <p class="photo-credit">Photo by Cup of Couple on Pexels</p>
+                        <h3>Holistic Rituals</h3>
+                        <p>Immerse yourself in lunar aromatherapy, warm herbal compresses, and grounding mindfulness
+                            sessions.</p>
+                    </div>
+                </article>
+
+            </section>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="cta">
+            <h2>Find Your Calm</h2>
+            <p>Book a session and step into a world of soft lavender light, sage aromatics, and peaceful renewal.</p>
+            <a href="contact.html" class="btn">Book an Appointment</a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>
+            This website was created as a student project for Chapters 10–17 to demonstrate mobile‑first design,
+            semantic HTML structure, accessible color practices, and modern CSS techniques. Earlier chapters focused on
+            layout, spacing, typography, and responsive navigation, while later chapters introduced visual enhancements
+            such as gradient‑styled buttons, soft shadows with hover transitions, blend‑mode effects on imagery, and a
+            floated portrait image with rounded shaping for natural text wrapping. Chapters 15–17 added interactive
+            motion through a smooth card hover transition, a subtle transform effect, and a soft fade‑and‑rise animation
+            applied to section titles. Theme colors were defined in the CSS :root using HEX fallbacks and an OKLCH
+            accent color, and all color combinations were checked for readability. All text and images support a
+            fictional spa business, with images sourced from Pexels under public‑domain usage. &copy; 2026 Desiree
+            Boudreaux — Moonstone & Meadow Spa.
+        </p>
+
+    </footer>
+
+    <script src="js/file.js"></script>
+
+</body>
+
+</html>
