@@ -452,7 +452,6 @@ p {
 /* ============================
    Back to top
    ============================ */ 
-
 .back-to-top {
   color: var(--antique-gold);
   text-decoration: underline;
@@ -461,6 +460,7 @@ p {
 /* ===========================
    Process Page               
    =========================== */
+
 /* Shrink images on all devices */
 .process-image {
     max-width: 400px !important;
@@ -469,4 +469,18 @@ p {
     display: block !important;
     margin: 1rem auto !important;
     object-fit: contain !important;
+}
+
+/* ===========================
+   Site Map Text
+   =========================== */
+
+/* Align text */
+.sitemap {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: normal;
+  margin: 0;
+  padding: 0;
 }
