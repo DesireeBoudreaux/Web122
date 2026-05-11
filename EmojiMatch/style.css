@@ -1,0 +1,98 @@
+/*Reset*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Page layout */
+body {
+  background: white;
+  color: #7f1494;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  color: #570cd1;
+}
+
+header p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #03838a;
+}
+
+/* Game board grid: 8 columns for 32 cards */
+#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 8 cards per row */
+  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  padding: 15px;
+  background: #f4f4f4;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Card styling */
+.card {
+  background: linear-gradient(135deg, #6906b5, #03838a); /* card back */
+  color: transparent;        /* emoji hidden until flipped */
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 80px; /* small height to fit 8 cards in the row */
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Hidden state (back of card) */
+.card.hidden {
+  background: linear-gradient(135deg, #6906b5, #03838a);
+  color: transparent;
+}
+
+/* Revealed state (front of card) */
+.card:not(.hidden) {
+  background: #ecf0f1;
+  color: black;
+  border: 2px solid black;
+}
+
+/* Score and message */
+#score, #message {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #03838a;
+}
+
+/* Reset button */
+#resetButton {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #6906b5, #03838a);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Hover effect: shift gradient */
+#resetButton:hover {
+  background: linear-gradient(135deg, #03838a, #6906b5);
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: black;
+}
