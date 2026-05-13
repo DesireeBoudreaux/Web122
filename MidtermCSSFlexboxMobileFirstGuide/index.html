@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Desiree Boudreaux">
+    <title>CSS Flexbox: A Mobile-First Guide</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="top"></div>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <h1 class="site-title">CSS Flexbox: A Mobile-First Guide</h1>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="#intro">Introduction</a></li>
+                    <li><a href="#core-concepts">Core Concepts</a></li>
+                    <li><a href="#real-world">Real World Layouts</a></li>
+                    <li><a href="#advanced">Advanced Techniques</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <!-- Section 1 -->
+        <section id="intro" class="section">
+            <div class="container">
+
+                <div class="section-inner">
+
+                    <div class="section-image">
+                        <img src="assets/mockaroon-FimzgwBlF2A-unsplash.jpg"
+                            alt="Black and white picture with notebooks, a tablet, a phone, a pen, and swatch strips">
+                         <p class="photo-credit">Photo by Mockaroon on Unsplash.</p>
+
+                    </div>
+
+
+                    <div class="section-text">
+                        <h2>Introduction to CSS Flexbox</h2>
+                        <p>
+                            CSS Flexbox, short for the Flexible Box Layout Module, is a layout system designed to make
+                            it easier
+                            to align, distribute, and organize elements in a container, even when their size is unknown
+                            or dynamic.
+                            Before Flexbox, web developers relied heavily on floats, inline-block hacks, and complicated
+                            positioning
+                            tricks to create layouts that were only somewhat responsive and at times fragile. Flexbox was introduced to solve these pain points by providing a more intuitive, powerful, and predictable way to control layout in one dimension, either as rows or columns.
+                        </p>
+                        <p>
+                            At its core, Flexbox is about relationships between a parent container and its children.
+                            When you set
+                            <code>display: flex;</code> on a container, that element becomes a flex container, and its
+                            direct children
+                            become flex items. From there, you can control how those items grow, shrink, wrap, and
+                            align. This makes
+                            Flexbox especially useful for building navigation bars, card layouts, and responsive
+                            sections that need to
+                            adapt gracefully to different screen sizes. Instead of manually calculating widths or
+                            relying on rigid
+                            grids, Flexbox lets the browser do the heavy lifting.
+                        </p>
+                        <p>
+                            Flexbox is also a natural fit for mobile-first design. On small screens, content often needs
+                            to stack in a
+                            single column, with generous spacing and clear hierarchy. As the screen size increases,
+                            Flexbox makes it
+                            easy to rearrange items into rows, align them side by side, or center them both vertically
+                            and horizontally.
+                            This progressive enhancement approach aligns perfectly with modern responsive design
+                            practices, where the
+                            mobile experience is treated as the foundation rather than an afterthought.
+                        </p>
+                        <p>
+                            In this single page website, we will explore how Flexbox works, why it is so widely used,
+                            and how it can
+                            support a mobile-first workflow. We will start with the basic concepts, move into real world
+                            layout
+                            examples, and then look at more advanced techniques that give you fine grained control over
+                            how elements
+                            behave. By the end, you should have a clear understanding of why Flexbox is considered one
+                            of the most
+                            important tools in modern CSS.
+                        </p>
+                    </div>
+
+                </div> <!-- end .section-inner -->
+
+                <p class="back-to-top"><a href="#top">Back to top</a></p>
+
+            </div> <!-- end .container -->
+        </section>
+
+
+
+        <!-- Section 2 -->
+        <section id="core-concepts" class="section">
+            <div class="container">
+
+                <div class="section-inner">
+
+                    <div class="section-image">
+                        <img src="assets/hal-gatewood-tZc3vjPCk-Q-unsplash.jpg"
+                            alt="Wireframe-style sketch showing a simple website layout structure.">
+                        <p class="photo-credit">Photo by Hal Gatewood on Unsplash.</p>
+                    </div>
+
+                    <div class="section-text">
+                        <h2>Core Concepts of Flexbox</h2>
+                        <p>
+                            To use Flexbox effectively, it is important to understand its core concepts and terminology.
+                            The first key
+                            idea is the distinction between the main axis and the cross axis. The main axis is the
+                            primary direction in
+                            which flex items are laid out, and it is controlled by the <code>flex-direction</code>
+                            property. When
+                            <code>flex-direction: row;</code> is used, the main axis runs horizontally from left to
+                            right, and the cross
+                            axis runs vertically. When <code>flex-direction: column;</code> is used, the main axis runs
+                            vertically, and
+                            the cross axis runs horizontally. This mental model helps you reason about how items will
+                            align and wrap.
+                        </p>
+                        <p>
+                            Another essential concept is alignment along these axes. The <code>justify-content</code>
+                            property controls
+                            how items are distributed along the main axis. Common values include
+                            <code>flex-start</code>,
+                            <code>center</code>, <code>space-between</code>, and <code>space-around</code>. These values
+                            let you push
+                            items to the edges, center them, or distribute extra space between them. On the cross axis,
+                            <code>align-items</code> controls how items are aligned relative to each other. For example,
+                            <code>align-items: center;</code> vertically centers items within the container when the
+                            main axis is
+                            horizontal.
+                        </p>
+                        <p>
+                            Flexbox also introduces the idea of flexible sizing through properties like
+                            <code>flex-grow</code>,
+                            <code>flex-shrink</code>, and <code>flex-basis</code>. These three properties are often
+                            combined into the
+                            shorthand <code>flex</code>. The <code>flex-grow</code> value determines how much an item
+                            can grow relative
+                            to its siblings when extra space is available. The <code>flex-shrink</code> value determines
+                            how much an
+                            item can shrink when there is not enough space. The <code>flex-basis</code> value sets the
+                            initial size of
+                            the item before growing or shrinking is applied. Together, they allow you to create layouts
+                            where some
+                            elements are more dominant while others remain compact.
+                        </p>
+                        <p>
+                            Finally, Flexbox supports wrapping and multi-line layouts through the <code>flex-wrap</code>
+                            property. By
+                            default, flex items will try to fit on a single line, which can cause them to shrink more
+                            than desired on
+                            small screens. Setting <code>flex-wrap: wrap;</code> allows items to move onto additional
+                            lines when needed.
+                            This is especially useful for responsive card layouts or navigation menus that need to adapt
+                            to different
+                            screen widths. Understanding these core concepts, including axes, alignment, flexible sizing, and wrapping, provides a strong foundation for building more complex and responsive designs with Flexbox.
+                        </p>
+                    </div>
+
+                </div> <!-- end .section-inner -->
+
+                <p class="back-to-top"><a href="#top">Back to top</a></p>
+
+            </div> <!-- end .container -->
+        </section>
+
+
+
+
+        <!-- Section 3 -->
+        <section id="real-world" class="section">
+            <div class="container">
+
+                <div class="section-inner">
+
+                    <div class="section-image">
+                        <img src="assets/ferenc-almasi-hMYODfDWs9M-unsplash.jpg"
+                            alt="Computer screen displaying code in a development environment">
+                        <p class="photo-credit">Photo by Ferenc Almasi on Unsplash.</p>
+
+                    </div>
+
+                    <div class="section-text">
+                        <h2>Real-World Flexbox Layouts</h2>
+                        <p>
+                            One of the reasons CSS Flexbox is so popular is its practicality in real-world layouts. A
+                            common example is
+                            the navigation bar. On a mobile device, a navigation menu often needs to collapse into a
+                            hamburger icon to
+                            save space. When the menu is expanded, the links can be stacked vertically in a column.
+                            Flexbox makes this
+                            straightforward: the navigation container can be a flex container, and the links can be flex
+                            items that
+                            stack or align based on the screen size. As the viewport grows, the same navigation can be
+                            rearranged into a
+                            horizontal row with evenly spaced links, simply by changing the <code>flex-direction</code>
+                            and alignment
+                            properties at different breakpoints.
+                        </p>
+                        <p>
+                            Another powerful use case is card-based layouts, such as feature sections, product grids, or
+                            article
+                            previews. On small screens, each card can take up the full width of the container, creating
+                            a clean,
+                            scrollable column of content. With Flexbox, this is as simple as setting the container to
+                            <code>display: flex;</code>, <code>flex-direction: column;</code>, and giving each card
+                            consistent margins
+                            and padding. On tablets and desktops, the same container can switch to
+                            <code>flex-direction: row;</code> and
+                            <code>flex-wrap: wrap;</code>, allowing multiple cards to appear side by side. The cards can
+                            be given
+                            flexible widths using the <code>flex</code> shorthand, so they automatically adjust to the
+                            available space.
+                        </p>
+                        <p>
+                            Flexbox also shines when it comes to centering content, which has historically been a
+                            challenge in CSS.
+                            With Flexbox, centering both horizontally and vertically can be achieved with just a few
+                            properties:
+                            <code>display: flex;</code>, <code>justify-content: center;</code>, and
+                            <code>align-items: center;</code>.
+                            This is especially useful for hero sections, call-to-action blocks, or any content that
+                            needs to be
+                            prominently positioned in the middle of the screen. On mobile devices, this kind of centered
+                            layout can help
+                            focus the user’s attention on the most important message or action.
+                        </p>
+                        <p>
+                            In a mobile-first workflow, Flexbox supports progressive enhancement by allowing layouts to
+                            start simple and
+                            then become more sophisticated as the screen size increases. For example, a section that
+                            begins as a single
+                            column of text and an image on mobile can evolve into a two-column layout on tablets and a
+                            more complex
+                            multi-column arrangement on desktops. This flexibility reduces the need for separate
+                            templates or duplicated
+                            markup. Instead, a single HTML structure can adapt fluidly across devices, which is exactly
+                            what modern
+                            responsive design aims to achieve.
+                        </p>
+                    </div>
+
+                </div> <!-- end .section-inner -->
+
+                <p class="back-to-top"><a href="#top">Back to top</a></p>
+
+            </div> <!-- end .container -->
+        </section>
+
+
+        <!-- Section 4 -->
+        <section id="advanced" class="section">
+            <div class="container">
+
+                <div class="section-inner">
+
+                    <div class="section-image">
+                        <img src="assets/dmitry-mashkin-UeWRA_GciJI-unsplash.jpg"
+                            alt="Mobile phone displaying user interface layout">
+                        <p class="photo-credit">Photo by Dmitry Mashkin on Unsplash.</p>
+
+                    </div>
+
+                    <div class="section-text">
+                        <h2>Advanced Flexbox Techniques</h2>
+                        <p>
+                            Once you are comfortable with the basics of Flexbox, you can begin exploring more advanced
+                            techniques that
+                            give you precise control over how elements behave. One of the most important advanced
+                            features is the
+                            <code>flex</code> shorthand, which combines <code>flex-grow</code>,
+                            <code>flex-shrink</code>, and
+                            <code>flex-basis</code> into a single declaration. For example,
+                            <code>flex: 1 1 200px;</code> means that an
+                            item will start at 200 pixels wide, can grow to fill available space, and can shrink if
+                            necessary. By
+                            assigning different flex values to different items, you can create layouts where some
+                            elements are
+                            intentionally more prominent than others, such as a main content area that is wider than a
+                            sidebar.
+                        </p>
+                        <p>
+                            Another advanced technique involves the <code>order</code> property, which allows you to
+                            change the visual
+                            order of flex items without altering the HTML structure. This can be particularly useful in
+                            responsive
+                            design. For instance, on mobile, you might want a call-to-action button to appear near the
+                            top of the page,
+                            while on desktop, it might make more sense for it to appear alongside supporting content.
+                            With
+                            <code>order</code>, you can rearrange items at different breakpoints using only CSS.
+                            However, this feature
+                            should be used thoughtfully, as it can affect keyboard navigation and screen reader users if
+                            overused.
+                        </p>
+                        <p>
+                            Flexbox can also be combined with other layout systems, such as CSS Grid, to create
+                            sophisticated designs.
+                            A common pattern is to use Grid for the overall page structure, defining major regions like the header, main, and footer, and then use Flexbox inside those regions for local alignment and distribution. For
+                            example, a header
+                            might be a grid area that contains a Flexbox-based navigation bar. This layered approach
+                            allows you to take
+                            advantage of the strengths of both systems: Grid for two-dimensional layouts and Flexbox for
+                            one-dimensional
+                            alignment.
+                        </p>
+                        <p>
+                            In the context of a mobile-first, single-page website like this one, advanced Flexbox
+                            techniques support a
+                            polished and accessible user experience. The sticky navigation at the top of the page uses
+                            Flexbox to align
+                            the site title and navigation links, while the hamburger menu relies on Flexbox to stack and
+                            reveal links on
+                            small screens. As the viewport grows, media queries adjust the layout so that navigation
+                            links spread out
+                            horizontally, and content sections shift into multi-column arrangements. These enhancements
+                            demonstrate how
+                            Flexbox can be used not only to solve layout problems but also to progressively refine the
+                            design across
+                            devices.
+                        </p>
+                    </div>
+
+                </div> <!-- end .section-inner -->
+
+                <p class="back-to-top"><a href="#top">Back to top</a></p>
+
+            </div> <!-- end .container -->
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <h2>Colophon</h2>
+            <p>
+                This single-page website was created as a mobile-first midterm project focused on CSS Flexbox. The
+                layout uses semantic HTML5 elements, including <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+                <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;footer&gt;</code>. Flexbox is
+                used
+                extensively to align navigation and structure content sections on mobile and tablet layouts, with a
+                float-based layout applied on desktop.
+            </p>
+            <p>
+                The site was coded using the text editor Visual Studio Code and tested in modern browsers FireFox,
+                Chrome, and Edge with responsive design tools. Documentation and reference material were consulted from
+                MDN Web Docs, CSS-Tricks, and the official W3C specification for the Flexible Box Layout Module. Images
+                used in this project were sourced from the free-to-use library Unsplash and are used under their
+                respective licenses. HTML and CSS were validated using the W3C validation services, and the resulting
+                reports are included as PDF files in the project submission.
+            </p>
+
+            <p>© 2026 Desiree Boudreaux</p>
+
+            <p class="back-to-top"><a href="#top">Back to top</a></p>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

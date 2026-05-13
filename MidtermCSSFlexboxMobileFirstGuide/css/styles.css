@@ -1,0 +1,360 @@
+/* BASE STYLES: MOBILE-FIRST */
+
+/* Reset-ish */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.site-title {
+    color: #111827;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background-color: #f7f7f9;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: #0b63ce;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Header & Navigation */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+}
+
+.site-title {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Hamburger button */
+
+.nav-toggle {
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.nav-toggle-bar {
+    width: 22px;
+    height: 2px;
+    background-color: #222;
+}
+
+/* Navigation menu */
+
+.site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(30, 58, 138, 0.15);
+    display: none;
+}
+
+.site-nav.open {
+    display: block;
+}
+
+.site-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 1rem 0.75rem;
+}
+
+.site-nav li {
+    margin: 0.25rem 0;
+}
+
+.site-nav a {
+    display: block;
+    padding: 0.4rem 0 0.4rem 1rem;
+    font-size: 0.95rem;
+    color: #111827;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.site-nav a:hover {
+    color: #1e3a8a;
+}
+
+/* Sections */
+
+.section {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(30, 58, 138, 0.15); /* blue divider */
+    background-color: #fdfdfd;
+}
+
+.section:nth-of-type(even) {
+    background-color: #f3f5f9;
+}
+
+.section-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.section h2 {
+    margin-top: 0;
+    color: #1e3a8a; 
+    border-bottom: 2px solid #1e3a8a; 
+    padding-bottom: 0.25rem;
+    display: inline-block;
+}
+
+.section-text p {
+    margin-bottom: 1rem;
+}
+
+/* Section Images*/
+.section-image {
+    text-align: center;
+}
+
+.section-image img {
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    margin: 0 auto;
+}
+
+.section-image .photo-credit {
+    font-size: 0.8rem;
+    color: #1e3a8a;
+    margin-top: 0.5rem;
+    text-align: center;
+    opacity: 0.9;
+}
+
+/* Back to top links */
+
+.back-to-top {
+    margin-top: 1rem;
+}
+
+.back-to-top a {
+    font-size: 0.9rem;
+    color: #1e3a8a;
+    font-weight: 500;
+}
+
+.back-to-top a:hover {
+    color: #0b63ce;
+}
+
+#top {
+    scroll-margin-top: 120px;
+}
+
+/* Footer */
+
+.site-footer {
+    background-color: #111827;
+    color: #e5e7eb;
+    padding: 2rem 0 3rem;
+}
+
+.site-footer h2 {
+    margin-top: 0;
+    color: #f9fafb;
+}
+
+.site-footer a {
+    color: #93c5fd;
+}
+
+/* Typography tweaks */
+
+p code {
+    background-color: #e5e7eb;
+    padding: 0.1rem 0.25rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: #000000;
+}
+
+/* TABLET BREAKPOINT */
+@media (min-width: 700px) {
+
+    .site-header {
+        text-align: center;
+    }
+
+    .site-title {
+        font-size: 1.3rem;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* Navigation: show inline, hide hamburger */
+    .nav-toggle {
+        display: none;
+    }
+
+    .site-nav {
+        position: static;
+        display: block;
+        border-bottom: none;
+        background: none;
+    }
+
+    .site-nav ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        gap: 1.5rem;
+    }
+
+    .site-nav li {
+        margin: 0;
+    }
+
+    .site-nav a {
+        padding: 0.4rem 0;
+        font-size: 0.95rem;
+    }
+
+    /* Two column layout */
+    .section-inner {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    /* Text on the left */
+    .section-text {
+        order: 1;
+        flex: 1 1 50%;
+        padding-right: 1.5rem;
+    }
+
+    /* Image on the right */
+    .section-image {
+        order: 2;
+        flex: 1 1 50%;
+        padding-left: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+    }
+
+    .section-image img {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .back-to-top {
+        padding-left: 1.5rem;
+    }
+}
+
+/* DESKTOP BREAKPOINT */
+
+@media (min-width: 1024px) {
+
+    body {
+        font-size: 1.05rem;
+    }
+
+    .header-inner {
+        padding: 1rem 0;
+    }
+
+    .site-title {
+        font-size: 1.5rem;
+    }
+
+    .site-nav ul {
+        gap: 2rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .section-inner {
+        display: block;
+    }
+
+    /* Float image — text wraps around image */
+    .section-image {
+        float: right;
+        width: 45%;
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+        padding-left: 0;
+        /* remove flex padding */
+    }
+
+    .section-image img {
+        max-width: 100%;
+        margin-left: auto;
+    }
+
+    /* Center photo credit under floated image */
+    .section-image .photo-credit {
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+    /* Text wraps around image */
+    .section-text {
+        overflow: visible;
+        padding-right: 2rem;
+    }
+
+    .site-footer {
+        padding: 3rem 0 3.5rem;
+    }
+}
